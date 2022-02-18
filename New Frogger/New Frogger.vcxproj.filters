@@ -39,6 +39,9 @@
     <ClCompile Include="DeathZone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LilyPad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Frog.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DeathZone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LilyPad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

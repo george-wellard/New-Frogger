@@ -7,3 +7,5 @@
 #define LEVEL_SPRITE_FILEPATH "Resources/Level.png"
 #define TRUCK_SPRITE_FILEPATH "Resources/Truck.png"
 #define LOG_SPRITE_FILEPATH "Resources/Log.png"
+#define LILYPAD_SPRITE_FILEPATH "Resources/Lilypad.png"
+#define FROGPAD_SPRITE_FILEPATH "Resources/FrogPad.png"

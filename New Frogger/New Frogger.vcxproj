@@ -147,6 +147,7 @@
     <ClCompile Include="Frog.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LilyPad.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="New Frogger.cpp" />
     <ClCompile Include="Truck.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Frog.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="LilyPad.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Truck.h" />
   </ItemGroup>

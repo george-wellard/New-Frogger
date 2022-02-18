@@ -4,22 +4,32 @@
 #include "Level.h"
 #include "Truck.h"
 #include "Log.h"
+#include "LilyPad.h"
 #include "DeathZone.h"
 #include "Collision.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(640, 480), "Frogger");
-	sf::Font font;
+	const int iPad = 5;
+	int wins = 0;
+	int lives = 3;
 
 	Frog frog(window.getSize());
 	Level level(window.getSize());
 	Truck truck(window.getSize(), 0, 270);
 	Truck truck2(window.getSize(), 0, 360);
-	Log log(window.getSize(), 0, 70);
+	Log log(window.getSize(), 0, 80);
 	Log log2(window.getSize(), 0, 130);
+	LilyPad lilypad [iPad];
 	DeathZone water(window.getSize());
 	Collision collision;
+
+	lilypad[0].setPos(40, 0);
+	lilypad[1].setPos(160, 0);
+	lilypad[2].setPos(280, 0);
+	lilypad[3].setPos(400, 0);
+	lilypad[4].setPos(520, 0);
 
 	while (window.isOpen())
 	{
@@ -51,11 +61,13 @@ int main()
 
 		if (collision.TruckFrogCollision(truck.getTruck(), frog.getFrog()))
 		{
+			lives--;
 			frog.Respawn(window.getSize());
 		}
 
 		if (collision.TruckFrogCollision(truck2.getTruck(), frog.getFrog()))
 		{
+			lives--;
 			frog.Respawn(window.getSize());
 		}
 
@@ -69,15 +81,41 @@ int main()
 			frog.LogMovementType2(event);
 		}
 
-		if (collision.WaterFrogCollision(water.getDeathZone(), frog.getFrog()) /* &&
-			!collision.LogFrogCollision(log.getLog(), frog.getFrog()) &&
-			!collision.LogFrogCollision(log2.getLog(), frog.getFrog())*/)
+		for (int i = 0; i < iPad; i++)
 		{
-			frog.Respawn(window.getSize());
+			if (collision.WaterFrogCollision(water.getDeathZone(), frog.getFrog()) &&
+				!collision.LogFrogCollision(log.getLog(), frog.getFrog()) &&
+				!collision.LogFrogCollision(log2.getLog(), frog.getFrog()) &&
+				!collision.PadFrogCollision(lilypad[i].getLilyPad(), frog.getFrog()))
+			{
+				lives--;
+				frog.Respawn(window.getSize());
+			}
+
+			if (collision.PadFrogCollision(lilypad[i].getLilyPad(), frog.getFrog()))
+			{
+				lilypad[i].addFrog();
+				wins++;
+				frog.Respawn(window.getSize());
+			}
 		}
 
-		//level.Draw(window);
+		if (wins == 5)
+		{
+			std::cout << "You Win!" << std::endl;
+		}
+
+		if (lives == 0)
+		{
+			std::cout << "Game Over!" << std::endl;
+		}
+
+		level.Draw(window);
 		water.Draw(window);
+		for (int i = 0; i < iPad; i++)
+		{
+			lilypad[i].Draw(window);
+		}
 		log.Draw(window);
 		log2.Draw(window);
 		frog.Draw(window);

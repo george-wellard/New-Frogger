@@ -17,5 +17,7 @@ public:
 
 	bool WaterFrogCollision(sf::RectangleShape water, sf::Sprite frog);
 
+	bool PadFrogCollision(sf::Sprite pad, sf::Sprite frog);
+
 };
 

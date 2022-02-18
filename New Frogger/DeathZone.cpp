@@ -2,8 +2,8 @@
 
 DeathZone::DeathZone(sf::Vector2u size)
 {
-	deathZone.setPosition(0, 70);
-	deathZone.setSize(sf::Vector2f(640, 130));
+	deathZone.setPosition(0, 80);
+	deathZone.setSize(sf::Vector2f(640, 100));
 	deathZone.setFillColor(sf::Color::Blue);
 }
 

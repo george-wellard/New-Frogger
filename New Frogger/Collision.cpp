@@ -43,3 +43,16 @@ bool Collision::WaterFrogCollision(sf::RectangleShape water, sf::Sprite frog)
 	return false;
 }
 
+bool Collision::PadFrogCollision(sf::Sprite pad, sf::Sprite frog)
+{
+	sf::FloatRect frogRect = frog.getGlobalBounds();
+	sf::FloatRect padRect = pad.getGlobalBounds();
+
+	if (frogRect.intersects(padRect))
+	{
+		return true;
+	}
+
+	return false;
+}
+

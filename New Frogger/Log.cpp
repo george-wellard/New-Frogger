@@ -12,11 +12,11 @@ void Log::MovementType1(sf::Event event)
 {
 	sf::Clock spawn;
 
-	log.move(0.25f, 0.0f);
+	log.move(0.15f, 0.0f);
 
 	if (log.getPosition().x > 640)
 	{
-		log.setPosition(-150, 70);
+		log.setPosition(-150, 80);
 	}
 }
 
@@ -24,7 +24,7 @@ void Log::MovementType2(sf::Event event)
 {
 	sf::Clock spawn;
 
-	log.move(-0.25f, 0.0f);
+	log.move(-0.15f, 0.0f);
 
 	if (log.getPosition().x < -100)
 	{
