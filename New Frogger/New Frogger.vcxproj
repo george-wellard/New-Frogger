@@ -145,6 +145,7 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DeathZone.cpp" />
     <ClCompile Include="Frog.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="LilyPad.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="DeathZone.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Frog.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="LilyPad.h" />

@@ -6,14 +6,17 @@
 #include "Log.h"
 #include "LilyPad.h"
 #include "DeathZone.h"
+#include "HUD.h"
 #include "Collision.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(640, 480), "Frogger");
+	sf::RenderWindow window(sf::VideoMode(640, 520), "Frogger");
 	const int iPad = 5;
 	int wins = 0;
 	int lives = 3;
+	bool win = false;
+	bool loss = false;
 
 	Frog frog(window.getSize());
 	Level level(window.getSize());
@@ -24,6 +27,7 @@ int main()
 	LilyPad lilypad [iPad];
 	DeathZone water(window.getSize());
 	Collision collision;
+	HUD hud;
 
 	lilypad[0].setPos(40, 0);
 	lilypad[1].setPos(160, 0);
@@ -62,12 +66,14 @@ int main()
 		if (collision.TruckFrogCollision(truck.getTruck(), frog.getFrog()))
 		{
 			lives--;
+			hud.Update(lives);
 			frog.Respawn(window.getSize());
 		}
 
 		if (collision.TruckFrogCollision(truck2.getTruck(), frog.getFrog()))
 		{
 			lives--;
+			hud.Update(lives);
 			frog.Respawn(window.getSize());
 		}
 
@@ -89,6 +95,7 @@ int main()
 				!collision.PadFrogCollision(lilypad[i].getLilyPad(), frog.getFrog()))
 			{
 				lives--;
+				hud.Update(lives);
 				frog.Respawn(window.getSize());
 			}
 
@@ -103,11 +110,13 @@ int main()
 		if (wins == 5)
 		{
 			std::cout << "You Win!" << std::endl;
+			win = true;
 		}
 
 		if (lives == 0)
 		{
 			std::cout << "Game Over!" << std::endl;
+			loss = true;
 		}
 
 		level.Draw(window);
@@ -121,6 +130,15 @@ int main()
 		frog.Draw(window);
 		truck.Draw(window);
 		truck2.Draw(window);
+		hud.Draw(window);
+		if (win)
+		{
+			hud.Win(window);
+		}
+		if (loss)
+		{
+			hud.Lose(window);
+		}
 
 		window.display();
 

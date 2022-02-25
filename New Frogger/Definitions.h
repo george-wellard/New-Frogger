@@ -9,3 +9,4 @@
 #define LOG_SPRITE_FILEPATH "Resources/Log.png"
 #define LILYPAD_SPRITE_FILEPATH "Resources/Lilypad.png"
 #define FROGPAD_SPRITE_FILEPATH "Resources/FrogPad.png"
+#define LIFE_FONT_FILEPATH "Resources/HudFont.ttf"
