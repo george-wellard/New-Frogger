@@ -24,6 +24,7 @@ void Truck::MovementType1(sf::Event event)
 
 void Truck::MovementType2(sf::Event event)
 {
+	truck.setRotation(180);
 
 	truck.move(-0.20f, 0.0f);
 
