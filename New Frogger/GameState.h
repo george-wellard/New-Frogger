@@ -16,11 +16,10 @@ public:
 
 	GameState();
 
-	void Loop();
-
-	void Draw();
-
 private:
+
+	sf::Clock spawner;
+	sf::Clock spawner2;
 
 	int wins = 0;
 	int lives = 3;

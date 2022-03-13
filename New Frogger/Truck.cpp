@@ -11,7 +11,7 @@ Truck::Truck(sf::Vector2u window, float x, float y)
 void Truck::MovementType1(sf::Event event)
 {
 
-	truck.move(0.20f, 0.0f);
+	truck.move(0.10f, 0.0f);
 
 	if (truck.getPosition().x > 640)
 	{
@@ -26,7 +26,7 @@ void Truck::MovementType2(sf::Event event)
 {
 	truck.setRotation(180);
 
-	truck.move(-0.20f, 0.0f);
+	truck.move(-0.1f, 0.0f);
 
 	if (truck.getPosition().x < -150)
 	{

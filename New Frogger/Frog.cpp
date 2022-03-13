@@ -59,11 +59,21 @@ void Frog::Movement(sf::Event event)
 void Frog::LogMovement(sf::Event event)
 {
 	frog.move(0.15, 0);
+
+	if (frog.getPosition().x > 640)
+	{
+		frog.move(-0.15, 0);
+	}
 }
 
 void Frog::LogMovementType2(sf::Event event)
 {
 	frog.move(-0.15, 0);
+
+	if (frog.getPosition().x < 0)
+	{
+		frog.move(0.15, 0);
+	}
 }
 
 void Frog::Respawn(sf::Vector2u size)

@@ -15,13 +15,20 @@ public:
 
 	void Lose(sf::RenderWindow& window);
 
-	void Update(int lives);
+	void Time(sf::RenderWindow& window);
+
+	void UpdateLives(int lives);
+
+	void UpdateTime(sf::Clock time);
 
 private:
 
 	sf::Text livesText;
 	sf::Text winText;
 	sf::Text loseText;
+	sf::Text timeText;
 	sf::Font font;
+
+	sf::Clock timer;
 };
 

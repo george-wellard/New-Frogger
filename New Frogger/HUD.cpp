@@ -21,6 +21,11 @@ HUD::HUD()
 	loseText.setCharacterSize(120);
 	loseText.setFillColor(sf::Color::White);
 	loseText.setPosition(50, 200);
+
+	timeText.setString(std::string("0"));
+	timeText.setCharacterSize(40);
+	timeText.setFillColor(sf::Color::White);
+	timeText.setPosition(20, 480);
 }
 
 void HUD::Draw(sf::RenderWindow& window)
@@ -38,7 +43,18 @@ void HUD::Lose(sf::RenderWindow& window)
 	window.draw(loseText);
 }
 
-void HUD::Update(int lives)
+void HUD::Time(sf::RenderWindow& window)
+{
+	window.draw(timeText);
+}
+
+void HUD::UpdateLives(int lives)
 {
 	livesText.setString(std::to_string(lives));
 }
+
+void HUD::UpdateTime(sf::Clock time)
+{
+	//timeText.setString(std::to_string(time));
+}
+5
