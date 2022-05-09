@@ -57,4 +57,3 @@ void HUD::UpdateTime(sf::Clock time)
 {
 	//timeText.setString(std::to_string(time));
 }
-5
